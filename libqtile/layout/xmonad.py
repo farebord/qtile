@@ -158,6 +158,7 @@ class MonadTall(SingleWindow):
         ("single_border_width", None, "Border width for single window"),
         ("name", "xmonad-tall", "Name of this layout."),
         ("margin", 0, "Margin of the layout"),
+        ("single_margin", 0, "Margin for a single window."),
         ("ratio", _med_ratio,
             "The percent of the screen-space the master pane should occupy "
             "by default."),
@@ -308,11 +309,11 @@ class MonadTall(SingleWindow):
             client.place(
                 self.group.screen.dx,
                 self.group.screen.dy,
-                self.group.screen.dwidth - 2 * self.single_border_width - self.margin,
-                self.group.screen.dheight - 2 * self.single_border_width - self.margin,
+                self.group.screen.dwidth - 2 * self.single_border_width - self.single_margin,
+                self.group.screen.dheight - 2 * self.single_border_width - self.single_margin,
                 self.single_border_width,
                 px,
-                margin=self.margin,
+                margin=self.single_margin,
             )
             client.unhide()
             return
